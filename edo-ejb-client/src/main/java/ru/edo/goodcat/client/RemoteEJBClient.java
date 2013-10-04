@@ -51,13 +51,13 @@ public class RemoteEJBClient {
 	private static ProcessorInfo lookupProcessorInfo() throws NamingException {
 		final Context context = new InitialContext(jndiProperties);
 		return (ProcessorInfo) context
-				.lookup("ejb:/edo-ejb//ProcessorInfoBean!ru.edo.goodcat.ejb.ProcessorInfo");
+				.lookup("ejb:/edo-ejb//ProcessorInfoBean!ru.goodcat.edo.ejb.ProcessorInfo");
 	}
 
 	private static ProcessorWorker lookupProcessorWorker()
 			throws NamingException {
 		final Context context = new InitialContext(jndiProperties);
 		return (ProcessorWorker) context
-				.lookup("ejb:/edo-ejb/ProcessorWorkerBean!ru.edo.goodcat.ejb.ProcessorWorker?stateful");
+				.lookup("ejb:/edo-ejb/ProcessorWorkerBean!ru.goodcat.edo.ejb.ProcessorWorker?stateful");
 	}
 }
