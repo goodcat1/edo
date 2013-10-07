@@ -20,7 +20,27 @@ public class Processor implements Serializable {
 	private static final long serialVersionUID = -3032244992909968484L;
 
 	private final Logger log = Logger.getLogger(Processor.class);
-	private ArrayList<Data> values;
+	private final ArrayList<Data> values;
+
+	@SuppressWarnings("serial")
+	public Processor() {
+		values = new ArrayList<Data>() {
+			{
+				add(new Data() {
+					{
+						setId(1L);
+						setValue("aa");
+					}
+				});
+				add(new Data() {
+					{
+						setId(2L);
+						setValue("bB");
+					}
+				});
+			}
+		};
+	}
 
 	@Inject
 	Event<Data> valueEvent;

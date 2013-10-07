@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:a4j="http://richfaces.org/a4j"
+	xmlns:rich="http://richfaces.org/rich"
+	template="/WEB-INF/templates/default.xhtml">
+
+	<ui:define name="content">
+		<h1>Data values</h1>
+		<h:form id="reg">
+			<h:panelGrid columns="1" border="1" styleClass="smoke">
+				<h:dataTable var="_val" value="#{values}" style="simpletablestyle">
+					<h:column>
+						<f:facet name="header">Id</f:facet>#{_val.id}</h:column>
+					<h:column>
+						<f:facet name="value">Value</f:facet>#{_val.value}</h:column>
+					<h:column>
+						<f:facet name="header">Action</f:facet>
+						<h:commandButton id="addValue"
+							action="#{processorWorkerBean.addValue(_val.id)}"
+							value="#{_val.value}" />
+					</h:column>
+				</h:dataTable>
+			</h:panelGrid>
+		</h:form>
+	</ui:define>
+</ui:composition>

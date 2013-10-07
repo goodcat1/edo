@@ -24,10 +24,15 @@ public class ProcessorWorkerBean implements Serializable {
 	@Inject
 	Processor processor;
 
-	public void addValue(Data value) {
+	public void addValue(Long id) {
 		FacesContext facesContext = FacesContext.getCurrentInstance();
 
-		log.infov("Adding value {}", value);
+		log.infov("Adding value {}", id);
+
+		Data value = new Data();
+
+		value.setId(id);
+		value.setValue("Added");
 
 		processor.addValue(value);
 
