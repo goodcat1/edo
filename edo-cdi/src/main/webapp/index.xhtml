@@ -10,8 +10,10 @@
 	<ui:define name="content">
 		<h1>Data values</h1>
 		<h:form id="reg">
-			<h:panelGrid columns="1" border="1" styleClass="smoke">
-				<h:dataTable var="_val" value="#{values}" style="simpletablestyle">
+			<a4j:poll id="poll" interval="2000"
+				enabled="#{pollerBean.pollingActive}" render="grid" />
+			<rich:panel header="Values Machine" style="width:350px">
+				<rich:dataTable id="grid" var="_val" value="#{values}" style="simpletablestyle">
 					<h:column>
 						<f:facet name="header">Id</f:facet>#{_val.id}</h:column>
 					<h:column>
@@ -22,8 +24,8 @@
 							action="#{processorWorkerBean.addValue(_val.id)}"
 							value="#{_val.value}" />
 					</h:column>
-				</h:dataTable>
-			</h:panelGrid>
+				</rich:dataTable>
+			</rich:panel>
 		</h:form>
 	</ui:define>
 </ui:composition>
